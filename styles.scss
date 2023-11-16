@@ -613,6 +613,13 @@
               font-size: 2.8rem;
               letter-spacing: -0.39px;
             }
+            a{
+              h3 {
+                color: $white;
+                font-size: 2.8rem;
+                letter-spacing: -0.39px;
+              }
+            }
             p {
               color: $grayish-violet;
               font-size: 1.6rem;
@@ -765,4 +772,40 @@
           color: rgb(255, 20, 39);
           text-decoration: underline;
         }
+      }
+
+      .lightbox {
+        /* Default to hidden */
+        display: none;
+      
+        /* Overlay entire screen */
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        /* A bit of padding around image */
+        padding: 1em;
+      
+        /* Translucent background */
+        background: rgb(0, 0, 0);
+      }
+      
+      /* Unhide the lightbox when it's the target */
+      .lightbox:target {
+        display: block;
+      }
+      
+      .lightbox span {
+        /* Full width and height */
+        display: block;
+        width: 90%;
+        height: 90%;
+      
+        /* Size and position background image */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
       }
