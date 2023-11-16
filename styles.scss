@@ -1,0 +1,768 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;700&display=swap");
+
+* {
+    margin:0;
+    padding:0;
+  }
+  
+  $deep-violet: #2C2830;
+  $grayish-violet: #837D88;
+  $dark-violet: #2D2641;
+  $grayish-blue: #96A9C6;
+  $white: #FAFAFA;
+
+  $font-heading: "DM Serif Display", serif;
+  $font-body: "Karla", sans-serif;
+
+  $animate: all 0.3s ease-in-out;
+
+  @mixin med {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  
+  @mixin lg {
+    @media screen and (min-width: 992px) {
+      @content;
+    }
+  }
+  
+  @mixin xl {
+    @media screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-family: $font-body;
+    margin: 0 auto;
+  }
+  
+  img {
+    width: 100%;
+    display: block;
+  }
+  
+  h1,
+  h2 {
+    font-family: $font-heading;
+    color: $white;
+    font-weight: 400;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  p {
+    line-height: 1.5;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: $white;
+    font-size: 2rem;
+    padding: 1.2rem;
+    letter-spacing: 1.36px;
+    font-weight: 400;
+    transition: 0.2s ease;
+  
+    &:hover {
+      color: $grayish-blue;
+    }
+  
+    @include med {
+      color: $grayish-violet;
+      font-size: 1.3rem;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      padding: 0;
+  
+      &:hover {
+        color: $dark-violet;
+      }
+    }
+  }
+
+  .navigation {
+    padding: 1.9rem 0.6rem;
+    background: $white;
+    position: relative;
+    z-index: 1;
+    
+    @include med{
+        padding: 1.8rem 0;
+    }
+
+    &__menu{
+      padding: 0.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: $white;
+      z-index: 10;
+      position: relative;
+
+      @include med {
+        padding: 0;
+      }
+    }
+    }
+
+    .menu-logo {
+        @include med {
+          padding-top: 0;
+          padding-left: 0.3rem;
+        }
+    }
+
+    .menu-icon {
+        width: 3.2rem;
+        height: 3.2rem;
+        cursor: pointer;
+        background-image: url(./images/hambuger_icon.png);
+
+        @include med {
+            display: none;
+        }
+    }
+
+    .menu-links {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        position: fixed;
+        list-style: none;
+        height: 58.7rem;
+        width: 100%;
+        top: 8rem;
+        left: 0;
+        transition: all 0.3s ease-in-out;
+        background: $deep-violet;
+        transform-origin: top right;
+        text-align: center;
+        padding: 3rem 0 4rem;
+        font-weight: 700;
+        z-index: -1;
+        text-transform: uppercase;
+        list-style: none;
+        margin: 0 auto; 
+
+        &::after{
+          content: "";
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.5);
+          height: 100vh;
+          position: fixed;
+          z-index: 100;
+          opacity: 0;
+          left: 0;
+          width: 100vw;
+          top: 59rem;
+        }
+
+        li{
+          line-height: 4rem;
+          padding: 1.1rem 0;
+        }
+
+        &last-child{
+            &::after{
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              height: 218px;
+              width: 100%;
+              width: 100%;
+              background-size: cover;
+
+              @include med {
+                display: none;
+              }
+        }
+        }
+
+        @include med {
+            position: static;
+            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, max-content);
+            column-gap: 2.8rem;
+            transform: none;
+            background: transparent;
+            height: unset;
+            width: unset;
+            padding: 0;
+            margin: 0;
+        
+            padding-top: 0.3rem;
+            column-gap: 2.4rem;
+        }
+
+        @include med {
+            padding: 0;
+        }
+    }
+
+    .container {
+        max-width: 111rem;
+        margin: 0 auto;
+        width: 90%; 
+    }
+    
+    .plans {
+        margin-top: 0.8rem;
+        
+        @include med{
+            margin: 0 0 0 0.8rem;
+        }
+
+        a{
+          padding: 1.5rem 10rem;
+
+          @include med{
+            padding: 1.15rem 2.7rem;
+          }
+        }
+    }
+
+    .cta {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1.3rem;
+        cursor: pointer;
+        border: 1.5px solid #fff;
+        color: $white;
+        transition: all 0.3s ease-in-out;
+        height: 4rem; 
+
+        &:hover{
+          background: $white;
+          color: $dark-violet;
+        }
+
+        &--nav{
+          font-family: "Karla", sans-serif;
+          letter-spacing: 1.36px;
+          font-size: 2rem;
+          width: 87%;
+          max-width: 34rem;
+          padding: 1.2rem 2.65rem;
+
+          @include med{
+            background: none;
+            color: #2d2640;
+            font-size: 1.3rem;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+            border: 1px solid $dark-violet;
+            width: 14.6rem; }
+
+          &:hover {
+            background: $dark-violet;
+            color: $white;
+            }
+        }
+
+        &--hero{
+          width: 14.6rem;
+          height: 4rem;
+          font-weight: bold;
+          line-height: 1.52rem;
+          letter-spacing: 1.5px;
+          justify-self: center;
+          padding: 1.2rem;
+          margin-top: 1.4rem;
+
+          @include med {
+            margin-top: 0;
+            justify-self: left;
+            width: auto;
+            padding: 1.15rem 2.65rem;
+          }
+      
+          @include lg {
+            margin-top: 1.6rem;
+          }
+        }
+
+        &--action{
+          letter-spacing: 0.15rem;
+          line-height: 1.52rem;
+          padding: 1rem 2.5rem;
+
+          @include lg {
+            padding: 1rem 2.2rem;
+          }
+        }
+    
+    }
+
+    #toggle {
+        display: none;
+        
+        &:checked + .menu-icon{
+          background-image: url(./images/close_image.png);
+        }
+
+        &:checked ~ .menu-links{
+          -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+        }
+
+        &:checked ~ .menu-links:after{
+          opacity: 1;
+        }
+    
+    }
+
+    .horizontal{
+        &::before{
+            content: "";
+            position: absolute;
+            width: 15rem; 
+        }
+
+        &--hero{
+            &::before{
+                display: none;
+                border-top: 1px solid #fff;
+                top: -6.4rem;
+
+                @include lg{
+                    display: block;
+                }
+            }
+        }
+
+        &--features{
+            &::before{
+                border-top: 1px solid #c396c6;
+                left: 50%;
+                margin: -3.2rem 0 0 -7.5rem;
+
+                @include lg{
+                    left: unset;
+                    margin: -4.6rem 0 0 0;
+                }
+            }
+        }
+    }
+
+    .hero {
+        text-align: center;
+        background: $dark-violet;
+      
+        @include med {
+          position: relative;
+          text-align: left;
+          max-height: 60rem;
+      
+          &::before {
+            position: absolute;
+            bottom: -33.5rem;
+            left: 0;
+          }
+      
+          &::after {
+            position: absolute;
+            top: -8rem;
+            right: 0;
+          }
+        }
+      
+        .container {
+          @media screen and (max-width: 767px) {
+            width: 100%;
+          }
+        }
+      
+        &__content {
+          @include med {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      
+        .image {
+          @include med {
+            flex: 1;
+            order: 2;
+          }
+      
+          img {
+            @include lg {
+              animation: fadeIn 2s ease;
+            }
+      
+            @include xl {
+              margin-left: 1rem;
+              width: 540px;
+              transform: translateY(10.5rem);
+            }
+          }
+        }
+      
+        .heading {
+          color: $white;
+          padding: 9.1rem 2.5rem 9.3rem;
+          position: relative;
+      
+          display: grid;
+          grid-template-rows: repeat(3, max-content);
+          row-gap: 1.7rem;
+      
+          @include med {
+            flex: 1;
+            order: 1;
+            padding-left: 0;
+          }
+      
+          @include lg {
+            animation: fadeIn 2s ease, slideUp 2s ease;
+          }
+      
+          @include xl {
+            padding: 0 2rem 1.5rem 0;
+            grid-template-rows: 14rem 8rem 5rem;
+            row-gap: 1.4rem;
+          }
+      
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+      
+            @include med {
+              display: none;
+            }
+          }
+      
+          &::after {
+            position: absolute;
+            bottom: -18rem;
+            right: 0rem;
+      
+            @include med {
+              display: none;
+            }
+          }
+      
+          h1 {
+            font-family: $font-heading;
+            font-size: 4.8rem;
+            line-height: 1;
+            letter-spacing: -0.67px;
+            position: relative;
+      
+            @include med {
+              font-size: 5.5rem;
+              position: relative;
+            }
+      
+            @include xl {
+              font-size: 7.2rem;
+              line-height: 89%;
+              letter-spacing: -1px;
+              padding-right: 2rem;
+            }
+          }
+      
+          p {
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+      
+            @include xl {
+              padding-top: 0.2rem;
+            }
+          }
+        }
+      }
+
+      .action {
+        padding-bottom: 14rem;
+      
+        @include lg {
+          padding-bottom: 15rem;
+        }
+      
+        .container {
+          width: 87%;
+        }
+      
+        &__content {
+          text-align: center;
+          background: #2d2640;
+          padding: 7.2rem 2.4rem 7rem;
+          position: relative;
+          z-index: 2;
+          line-height: 4rem;
+          overflow: hidden;
+      
+          &::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+            @include lg {
+            }
+          }
+      
+          @include lg {
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 7rem 8rem 6.8rem 8.1rem;
+          }
+        }
+      
+        .heading {
+          font-size: 4rem;
+          letter-spacing: -0.56px;
+          padding-bottom: 4.2rem;
+      
+          @include lg {
+            padding-bottom: 0;
+            letter-spacing: -0.78px;
+            line-height: 100%;
+            max-width: 55%;
+            font-size: 4.5rem;
+          }
+      
+          @include xl {
+            font-size: 5.6rem;
+            max-width: 47.5rem;
+          }
+        }
+      }
+
+      .features {
+        text-align: center;
+        padding: 14rem 0 12.3rem 0;
+      
+        @include lg {
+          text-align: left;
+          position: relative;
+          padding-top: 18rem;
+          padding-bottom: 10.2rem;
+        }
+      
+        @include xl {
+          padding-top: 31.9rem;
+        }
+      
+        &__heading {
+          color: $deep-violet;
+          font-size: 4.8rem;
+          letter-spacing: -0.67px;
+          padding-top: 3.2rem;
+      
+          @include lg {
+            font-size: 7.2rem;
+            letter-spacing: -1px;
+          }
+        }
+        &__list {
+          padding-top: 7.2rem;
+          @include lg {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 3rem;
+            padding-top: 7.9rem;
+          }
+          li {
+            display: grid;
+            grid-template-rows: 10rem 4rem 9rem;
+            grid-gap: 1.8rem;
+      
+            max-width: 60rem;
+            margin: 0 auto;
+      
+            &:not(:last-child) {
+              padding-bottom: 4rem;
+            }
+      
+            @include lg {
+              max-width: 35rem;
+            }
+      
+            img {
+              width: 8.6rem;
+              height: 8.6rem;
+              margin: 0 auto;
+      
+              @include lg {
+                margin: 0;
+              }
+            }
+            h2 {
+              color: $deep-violet;
+              font-size: 2.8rem;
+              letter-spacing: -0.39px;
+            }
+            p {
+              color: $grayish-violet;
+              font-size: 1.6rem;
+              line-height: 2.6rem;
+              margin-top: -0.5rem;
+              padding: 0 0.7rem;
+      
+              @include lg {
+                padding: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .footer {
+        background: $white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1.3rem;
+        line-height: 1.52rem;
+        letter-spacing: 0.15rem;
+        font-weight: bold;
+        padding: 8.8rem 0 0;
+        position: relative;
+        z-index: 2;
+        overflow-x: hidden;
+      
+        @include med {
+          padding: 6.4rem 0 0 0;
+        }
+      
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+      
+          @include med {
+          }
+        }
+      
+        h3 {
+          padding-bottom: 3.6rem;
+          color: $grayish-violet;
+        }
+      
+        ul {
+          padding-bottom: 4rem;
+        }
+      
+        hr {
+          width: 100%;
+          margin-bottom: 3.9rem;
+          opacity: 0.5;
+        }
+      
+        &__top {
+          @include med {
+            display: flex;
+            justify-content: space-between;
+          }
+      
+          .footerLogo {
+            width: 11.12rem;
+            margin: 0 auto;
+            padding: 0.3rem 0 3.2rem;
+          }
+      
+          .icons {
+            display: grid;
+            grid-template-columns: repeat(4, 2.4rem);
+            column-gap: 1.6rem;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 3.6rem;
+      
+            @include med {
+              padding-bottom: 3rem;
+            }
+      
+            svg {
+              fill: #837d88;
+              transition: all 0.2s ease;
+      
+              &:hover {
+                fill: $dark-violet;
+              }
+            }
+          }
+        }
+      
+        &__bottom {
+          @include med {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: left;
+            grid-gap: 3rem;
+            padding: 0.8rem 0 0.9rem;
+          }
+        }
+      
+        .about {
+          li:not(:last-child) {
+            padding-bottom: 1.6rem;
+          }
+      
+          a {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: $dark-violet;
+            position: relative;
+          }
+        }
+      }
+      
+      .underline {
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          width: 0;
+          height: 1px;
+          transition: $animate;
+          opacity: 1;
+          background-color: $dark-violet;
+          left: 0;
+        }
+        &:hover {
+          &:before {
+            opacity: 1;
+            width: 100%;
+          }
+        }
+      }
+      .attribution {
+        font-size: 1.1rem;
+        text-align: center;
+        text-transform: initial;
+        letter-spacing: normal;
+      
+        a {
+          font-size: inherit;
+          color: $grayish-violet;
+          text-decoration: none;
+          letter-spacing: normal;
+        }
+      
+        a:hover {
+          color: rgb(255, 20, 39);
+          text-decoration: underline;
+        }
+      }
